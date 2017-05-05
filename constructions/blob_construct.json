@@ -1,6 +1,21 @@
 [
   {
     "type": "construction",
+    "//": "Smash afterwards to harvest. really kind of nessecary the amount of blobs needed and the amount of meat produced by blaze's mod is just insane.",
+    "category": "OTHER",
+    "description": "Turn a bunch of meat into blob globs",
+    "difficulty": 0,
+    "time": 60,
+    "post_terrain": "meat_slime_mound",
+    "pre_special": "check_empty",
+    "tools": [ [ [ "gloople", -1 ], [ "oozle", -1 ], [ "gray", -1 ] ] ],
+    "components": [
+      [ [ "meat", 250 ] ],
+      [ [ "meat", 250 ] ]
+    ]
+  },
+  {
+    "type": "construction",
     "//": "Smash afterwards to harvest.",
     "category": "OTHER",
     "description": "Harvest Blob Feed from Corpse Pit: Smash to Harvest",
@@ -52,6 +67,23 @@
       "sound": "squish!",
       "sound_fail": "squish!",
       "items": [ { "item": "slime_scrap", "count": [ 25, 50 ] } ]
+    },
+    "flags": [ "WALL", "TRANSPARENT" ]
+  },
+  {
+    "id": "meat_slime_mound",
+    "type": "terrain",
+    "name": "mound of blobs",
+    "symbol": "O",
+    "color": [ "light_green" ],
+    "move_cost": 0,
+    "bash": {
+      "str_min": 1,
+      "str_max": 1,
+      "ter_set": "t_dirt",
+      "sound": "squish!",
+      "sound_fail": "squish!",
+      "items": [ { "item": "slime_scrap", "count": [ 300, 500 ] } ]
     },
     "flags": [ "WALL", "TRANSPARENT" ]
   }
