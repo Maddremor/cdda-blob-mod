@@ -1,0 +1,811 @@
+[{
+    "abstract" : "blob_tool",
+    "type" : "vehicle_part",
+    "name" : "blob part",
+    "requirements" : {
+      "repair" : {
+        "skills" : [["mechanics", 1]],
+        "time" : 10000,
+        "using" : "blazemod_blobfix"
+      }
+    }
+  }, {
+    "abstract" : "gloople_part",
+    "copy-from" : "blob_tool",
+    "type" : "vehicle_part",
+    "name" : "gel part",
+    "item" : "gloople",
+    "color" : "light_green",
+    "broken_color" : "light_green",
+    "difficulty" : 1,
+    "damage_modifier" : 10,
+    "durability" : 250,
+    "breaks_into" : [{
+        "item" : "slime_scrap",
+        "count" : [1, 3]
+      }
+    ],
+    "damage_reduction" : {
+      "all" : 5
+    }
+  }, {
+    "abstract" : "gloople_frame",
+    "type" : "vehicle_part",
+    "name" : "gel framework",
+    "copy-from" : "gloople_part",
+    "location" : "structure",
+    "broken_symbol" : "#",
+    "flags" : ["TOOL_NONE", "BOARDABLE", "MOUNTABLE", "AISLE"]
+  }, {
+    "id" : "gloople_cross",
+    "copy-from" : "gloople_frame",
+    "type" : "vehicle_part",
+    "symbol" : "c"
+  }, {
+    "id" : "gloople_horizontal",
+    "copy-from" : "gloople_frame",
+    "type" : "vehicle_part",
+    "symbol" : "h"
+  }, {
+    "id" : "gloople_horizontal_2",
+    "copy-from" : "gloople_frame",
+    "type" : "vehicle_part",
+    "symbol" : "="
+  }, {
+    "id" : "gloople_ne",
+    "copy-from" : "gloople_frame",
+    "type" : "vehicle_part",
+    "symbol" : "u"
+  }, {
+    "id" : "gloople_nw",
+    "copy-from" : "gloople_frame",
+    "type" : "vehicle_part",
+    "symbol" : "y"
+  }, {
+    "id" : "gloople_se",
+    "copy-from" : "gloople_frame",
+    "type" : "vehicle_part",
+    "symbol" : "n"
+  }, {
+    "id" : "gloople_sw",
+    "copy-from" : "gloople_frame",
+    "type" : "vehicle_part",
+    "symbol" : "b"
+  }, {
+    "id" : "gloople_vertical",
+    "copy-from" : "gloople_frame",
+    "type" : "vehicle_part",
+    "symbol" : "j"
+  }, {
+    "id" : "gloople_vertical_2",
+    "copy-from" : "gloople_frame",
+    "type" : "vehicle_part",
+    "symbol" : "H"
+  }, {
+    "id" : "gloople_plate",
+    "type" : "vehicle_part",
+    "copy-from" : "gloople_part",
+    "name" : "gel reinforcement",
+    "location" : "armor",
+    "symbol" : "X",
+    "broken_symbol" : "*",
+    "flags" : ["ARMOR", "TOOL_NONE"]
+  }, {
+    "abstract" : "gloople_board",
+    "type" : "vehicle_part",
+    "copy-from" : "gloople_part",
+    "name" : "gel wall",
+    "location" : "center",
+    "broken_symbol" : "#",
+    "flags" : ["OPAQUE", "OBSTACLE", "TOOL_NONE"]
+  }, {
+    "id" : "gloopleboard_horizontal",
+    "type" : "vehicle_part",
+    "copy-from" : "gloople_board",
+    "symbol" : "h"
+  }, {
+    "id" : "gloopleboard_ne",
+    "type" : "vehicle_part",
+    "copy-from" : "gloople_board",
+    "symbol" : "u"
+  }, {
+    "id" : "gloopleboard_nw",
+    "type" : "vehicle_part",
+    "copy-from" : "gloople_board",
+    "symbol" : "y"
+  }, {
+    "id" : "gloopleboard_se",
+    "type" : "vehicle_part",
+    "copy-from" : "gloople_board",
+    "symbol" : "n"
+  }, {
+    "id" : "gloopleboard_sw",
+    "type" : "vehicle_part",
+    "copy-from" : "gloople_board",
+    "symbol" : "b"
+  }, {
+    "id" : "gloopleboard_vertical",
+    "type" : "vehicle_part",
+    "copy-from" : "gloople_board",
+    "symbol" : "j"
+  }, {
+    "id" : "gloopledoor",
+    "type" : "vehicle_part",
+    "name" : "gel hatch",
+    "copy-from" : "gloople_part",
+    "location" : "center",
+    "symbol" : "+",
+    "broken_symbol" : "&",
+    "flags" : ["OBSTACLE", "OPENABLE", "BOARDABLE", "WINDOW", "TOOL_NONE"]
+  }, {
+    "id" : "gloople_belt",
+    "type" : "vehicle_part",
+    "name" : "gel harness",
+    "copy-from" : "gloople_part",
+    "location" : "on_seat",
+    "symbol" : ",",
+    "broken_symbol" : ",",
+    "bonus" : 25,
+    "flags" : ["SEATBELT", "TOOL_NONE"]
+  }, {
+    "id" : "gloople_roof",
+    "type" : "vehicle_part",
+    "name" : "gel roof",
+    "copy-from" : "gloople_part",
+    "location" : "roof",
+    "symbol" : "#",
+    "broken_symbol" : "#",
+    "flags" : ["ROOF", "TOOL_NONE"]
+  }, {
+    "id" : "gloople_seat",
+    "type" : "vehicle_part",
+    "name" : "gel seat",
+    "copy-from" : "gloople_part",
+    "location" : "center",
+    "symbol" : "#",
+    "broken_symbol" : "*",
+    "flags" : ["SEAT", "BED", "BOARDABLE", "BELTABLE", "TOOL_NONE"]
+  }, {
+    "id" : "gloopledoor_opaque",
+    "type" : "vehicle_part",
+    "name" : "opaque gel hatch",
+    "copy-from" : "gloople_part",
+    "location" : "center",
+    "symbol" : "+",
+    "broken_symbol" : "&",
+    "flags" : ["OBSTACLE", "OPAQUE", "OPENABLE", "BOARDABLE", "TOOL_NONE"]
+  }, {
+    "abstract" : "gloople_halfboard",
+    "type" : "vehicle_part",
+    "copy-from" : "gloople_part",
+    "name" : "gel barrier",
+    "location" : "center",
+    "broken_symbol" : "#",
+    "flags" : ["OBSTACLE", "TOOL_NONE"]
+  }, {
+    "id" : "halfgloopleboard_horizontal",
+    "type" : "vehicle_part",
+    "copy-from" : "gloople_halfboard",
+    "symbol" : "h"
+  }, {
+    "id" : "halfgloopleboard_horizontal_2",
+    "type" : "vehicle_part",
+    "copy-from" : "gloople_halfboard",
+    "symbol" : "="
+  }, {
+    "id" : "halfgloopleboard_ne",
+    "type" : "vehicle_part",
+    "copy-from" : "gloople_halfboard",
+    "symbol" : "u"
+  }, {
+    "id" : "halfgloopleboard_nw",
+    "type" : "vehicle_part",
+    "copy-from" : "gloople_halfboard",
+    "symbol" : "y"
+  }, {
+    "id" : "halfgloopleboard_se",
+    "type" : "vehicle_part",
+    "copy-from" : "gloople_halfboard",
+    "symbol" : "n"
+  }, {
+    "id" : "halfgloopleboard_sw",
+    "type" : "vehicle_part",
+    "copy-from" : "gloople_halfboard",
+    "symbol" : "b"
+  }, {
+    "id" : "halfgloopleboard_vertical",
+    "type" : "vehicle_part",
+    "copy-from" : "gloople_halfboard",
+    "symbol" : "j"
+  }, {
+    "id" : "halfgloopleboard_vertical_2",
+    "type" : "vehicle_part",
+    "copy-from" : "gloople_halfboard",
+    "symbol" : "H"
+  }, {
+    "abstract" : "gray_part",
+    "type" : "vehicle_part",
+    "copy-from" : "blob_tool",
+    "name" : "metalloid part",
+    "item" : "gray",
+    "color" : "lt_gray",
+    "broken_color" : "lt_gray",
+    "difficulty" : 1,
+    "durability" : 1000,
+    "damage_modifier" : 10,
+    "breaks_into" : [{
+        "item" : "slime_scrap",
+        "count" : [3, 8]
+      }
+    ],
+    "damage_reduction" : {
+      "all" : 10
+    }
+  }, {
+    "abstract" : "gray_frame",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_part",
+    "location" : "structure",
+    "broken_symbol" : "#",
+    "name" : "metalloid frame",
+    "flags" : ["TOOL_NONE", "BOARDABLE", "MOUNTABLE", "AISLE"]
+  }, {
+    "id" : "gray_cross",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_frame",
+    "symbol" : "c"
+  }, {
+    "id" : "gray_horizontal",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_frame",
+    "symbol" : "h"
+  }, {
+    "id" : "gray_horizontal_2",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_frame",
+    "symbol" : "="
+  }, {
+    "id" : "gray_ne",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_frame",
+    "symbol" : "u"
+  }, {
+    "id" : "gray_nw",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_frame",
+    "symbol" : "y"
+  }, {
+    "id" : "gray_se",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_frame",
+    "symbol" : "n"
+  }, {
+    "id" : "gray_sw",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_frame",
+    "symbol" : "b"
+  }, {
+    "id" : "gray_vertical",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_frame",
+    "symbol" : "j"
+  }, {
+    "id" : "gray_vertical_2",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_frame",
+    "symbol" : "H"
+  }, {
+    "abstract" : "gray_board",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_part",
+    "location" : "center",
+    "broken_symbol" : "#",
+    "name" : "metalloid wall",
+    "flags" : ["OPAQUE", "OBSTACLE", "TOOL_NONE"]
+  }, {
+    "id" : "grayboard_horizontal",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_board",
+    "symbol" : "h"
+  }, {
+    "id" : "grayboard_ne",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_board",
+    "symbol" : "u"
+  }, {
+    "id" : "grayboard_nw",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_board",
+    "symbol" : "y"
+  }, {
+    "id" : "grayboard_se",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_board",
+    "symbol" : "n"
+  }, {
+    "id" : "grayboard_sw",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_board",
+    "symbol" : "b"
+  }, {
+    "id" : "grayboard_vertical",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_board",
+    "symbol" : "j"
+  }, {
+    "id" : "graydoor",
+    "type" : "vehicle_part",
+    "name" : "metalloid hatch",
+    "copy-from" : "gray_part",
+    "location" : "center",
+    "symbol" : "+",
+    "broken_symbol" : "&",
+    "flags" : ["OBSTACLE", "OPENABLE", "BOARDABLE", "WINDOW", "TOOL_NONE"]
+  }, {
+    "id" : "graydoor_opaque",
+    "type" : "vehicle_part",
+    "name" : "opaque metalloid hatch",
+    "copy-from" : "gray_board",
+    "item" : "gray",
+    "location" : "center",
+    "symbol" : "+",
+    "broken_symbol" : "&",
+    "flags" : ["OBSTACLE", "OPAQUE", "OPENABLE", "BOARDABLE", "TOOL_NONE"]
+  }, {
+    "abstract" : "gray_halfboard",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_part",
+    "location" : "center",
+    "broken_symbol" : "#",
+    "name" : "metalloid barrier",
+    "flags" : ["OBSTACLE", "TOOL_NONE"]
+  }, {
+    "id" : "halfgrayboard_horizontal",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_halfboard",
+    "symbol" : "h"
+  }, {
+    "id" : "halfgrayboard_horizontal_2",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_halfboard",
+    "symbol" : "="
+  }, {
+    "id" : "halfgrayboard_ne",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_halfboard",
+    "symbol" : "u"
+  }, {
+    "id" : "halfgrayboard_nw",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_halfboard",
+    "symbol" : "y"
+  }, {
+    "id" : "halfgrayboard_se",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_halfboard",
+    "symbol" : "n"
+  }, {
+    "id" : "halfgrayboard_sw",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_halfboard",
+    "symbol" : "b"
+  }, {
+    "id" : "halfgrayboard_vertical",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_halfboard",
+    "symbol" : "j"
+  }, {
+    "id" : "halfgrayboard_vertical_2",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_halfboard",
+    "symbol" : "H"
+  }, {
+    "id" : "gray_seat",
+    "type" : "vehicle_part",
+    "copy-from" : "gray_part",
+    "name" : "metalloid seat",
+    "location" : "center",
+    "symbol" : "#",
+    "broken_symbol" : "*",
+    "flags" : ["SEAT", "BED", "BOARDABLE", "BELTABLE", "TOOL_NONE"]
+  }, {
+    "id" : "gray_plate",
+    "type" : "vehicle_part",
+    "name" : "metalloid reinforcement",
+    "copy-from" : "gray_part",
+    "location" : "armor",
+    "symbol" : "X",
+    "broken_symbol" : "*",
+    "flags" : ["ARMOR", "TOOL_NONE"]
+  }, {
+    "id" : "gray_roof",
+    "type" : "vehicle_part",
+    "name" : "metalloid roof",
+    "copy-from" : "gray_part",
+    "location" : "roof",
+    "symbol" : "#",
+    "broken_symbol" : "#",
+    "color" : "lt_gray",
+    "flags" : ["ROOF", "TOOL_NONE"]
+  }, {
+    "abstract" : "oozle_part",
+    "copy-from" : "blob_tool",
+    "type" : "vehicle_part",
+    "name" : "oozing part",
+    "difficulty" : 1,
+    "damage_modifier" : 10,
+    "durability" : 500,
+    "breaks_into" : [{
+        "item" : "slime_scrap",
+        "count" : [3, 8]
+      }
+    ],
+    "damage_reduction" : {
+      "physical" : 5
+    }
+  }, {
+    "id" : "oozle_amalgam",
+    "type" : "vehicle_part",
+    "copy-from" : "oozle_part",
+    "name" : "oozing scoop",
+    "item" : "oozle_wheel",
+    "location" : "under",
+    "color" : "light_green",
+    "broken_color" : "light_green",
+    "symbol" : "R",
+    "broken_symbol" : ";",
+    "epower" : 0,
+    "size" : 1000,
+    "flags" : ["SCOOP", "CARGO", "TOOL_NONE", "OBSTACLE"]
+  }, {
+    "id" : "oozle_pod",
+    "type" : "vehicle_part",
+    "copy-from" : "oozle_part",
+    "name" : "oozing pod",
+    "item" : "oozle_pod",
+    "color" : "yellow",
+    "broken_color" : "yellow",
+    "location" : "center",
+    "symbol" : "O",
+    "broken_symbol" : "#",
+    "flags" : ["FUEL_TANK", "TOOL_NONE", "OBSTACLE"]
+  }, {
+    "id" : "oozle_tank",
+    "type" : "vehicle_part",
+    "copy-from" : "oozle_part",
+    "name" : "oozing tank",
+    "item" : "oozle_tank",
+    "color" : "light_blue",
+    "broken_color" : "light_blue",
+    "location" : "center",
+    "symbol" : "O",
+    "broken_symbol" : "#",
+    "flags" : ["FUEL_TANK", "TOOL_NONE", "OBSTACLE"]
+  }, {
+    "id" : "oozle_trunk",
+    "type" : "vehicle_part",
+    "copy-from" : "oozle_part",
+    "name" : "oozing receptacle",
+    "item" : "oozle_box",
+    "location" : "center",
+    "symbol" : "H",
+    "size" : 1000,
+    "broken_symbol" : "#",
+    "color" : "green",
+    "broken_color" : "green",
+    "flags" : ["CARGO", "COVERED", "TOOL_NONE", "OBSTACLE"]
+  }, {
+    "id" : "oozle_wheel",
+    "type" : "vehicle_part",
+    "copy-from" : "oozle_part",
+    "name" : "oozing wheel",
+    "item" : "oozle_wheel",
+    "location" : "under",
+    "symbol" : "|",
+    "broken_symbol" : "x",
+    "flags" : ["WHEEL", "TOOL_NONE", "TRACKED", "NO_JACK"]
+  }, {
+    "type" : "vehicle_part",
+    "id" : "oozle",
+    "copy-from" : "oozle_part",
+    "name" : "oozing feeder",
+    "symbol" : "O",
+    "color" : "light_red",
+    "broken_color" : "light_red",
+    "power" : 100,
+    "epower" : 20,
+    "fuel_type" : "bfeed",
+    "item" : "oozle",
+    "location" : "center",
+    "flags" : ["REACTOR", "OBSTACLE"]
+  }, {
+    "type" : "vehicle_part",
+    "id" : "oozle_nom",
+    "copy-from" : "oozle_part",
+    "name" : "oozing assimilator",
+    "symbol" : "O",
+    "power" : 500,
+    "epower" : 50,
+    "color" : "light_gray",
+    "broken_color" : "light_gray",
+    "fuel_type" : "slime_scrap",
+    "item" : "oozle_nom",
+    "location" : "center",
+    "flags" : ["REACTOR", "OBSTACLE"]
+  }, {
+    "id" : "queen",
+    "type" : "vehicle_part",
+    "name" : "blob nursery",
+    "item" : "queen",
+    "location" : "structure",
+    "symbol" : "O",
+    "broken_symbol" : "#",
+    "color" : "red",
+    "broken_color" : "red",
+    "difficulty" : 1,
+    "fuel_type" : "battery",
+    "durability" : 1000,
+    "power": 600,
+    "epower" : -187,
+    "bonus" : 600,
+    "damage_modifier" : 10,
+    "size" : 1000,
+    "folded_volume" : 1,
+    "breaks_into" : [{
+        "item" : "queengrow"
+      }
+    ],
+    "damage_reduction" : {
+      "physical" : 5
+    },
+    "flags" : ["BOARDABLE", "BELTABLE", "TOOL_NONE", "ENGINE", "CONTROLS", "SEAT", "INITIAL_PART", "RECHARGE", "CARGO", "AISLE"],
+    "requirements" : {
+      "repair" : {
+        "skills" : [["mechanics", 1]],
+        "time" : 10000,
+        "using" : "blazemod_blobfix"
+      }
+    }
+  }, {
+    "id" : "grinder",
+    "type" : "vehicle_part",
+    "name" : "earthen roller",
+    "item" : "grinder",
+    "location" : "structure",
+    "symbol" : "O",
+    "broken_symbol" : "#",
+    "color" : "brown",
+    "broken_color" : "brown",
+    "difficulty" : 1,
+    "durability" : 2500,
+    "damage_modifier" : 250,
+    "breaks_into" : [{
+        "item" : "slime_scrap",
+        "count" : [10, 20]
+      }
+    ],
+    "damage_reduction" : {
+      "physical" : 30
+    },
+    "flags" : ["WHEEL", "TOOL_NONE", "PROTRUSION", "STABLE", "TRACKED", "NO_JACK"],
+    "requirements" : {
+      "repair" : {
+        "skills" : [["mechanics", 1]],
+        "time" : 10000,
+        "using" : "blazemod_blobfix"
+      }
+    }
+  }, {
+    "id" : "biter",
+    "type" : "vehicle_part",
+    "name" : "biting blob",
+    "item" : "biter",
+    "location" : "center",
+    "symbol" : "t",
+    "broken_symbol" : "#",
+    "color" : "blue",
+    "broken_color" : "blue",
+    "difficulty" : 1,
+    "durability" : 500,
+    "range" : 1,
+    "damage_modifier" : 100,
+    "breaks_into" : [{
+        "item" : "slime_scrap",
+        "count" : [3, 8]
+      }
+    ],
+    "damage_reduction" : {
+      "physical" : 5
+    },
+    "flags" : ["TURRET", "TOOL_NONE", "OBSTACLE"],
+    "requirements" : {
+      "repair" : {
+        "skills" : [["mechanics", 1]],
+        "time" : 10000,
+        "using" : "blazemod_blobfix"
+      }
+    }
+  }, {
+    "id" : "sickle",
+    "type" : "vehicle_part",
+    "name" : "gel razor",
+    "item" : "edge",
+    "location" : "center",
+    "symbol" : "t",
+    "broken_symbol" : "#",
+    "color" : "light_red",
+    "broken_color" : "light_red",
+    "difficulty" : 1,
+    "durability" : 1000,
+    "range" : 2,
+    "damage_modifier" : 100,
+    "breaks_into" : [{
+        "item" : "slime_scrap",
+        "count" : [5, 10]
+      }
+    ],
+    "damage_reduction" : {
+      "physical" : 10
+    },
+    "flags" : ["TURRET", "TOOL_NONE", "OBSTACLE"],
+    "requirements" : {
+      "repair" : {
+        "skills" : [["mechanics", 1]],
+        "time" : 10000,
+        "using" : "blazemod_blobfix"
+      }
+    }
+  }, {
+    "id" : "clutter",
+    "type" : "vehicle_part",
+    "name" : "gel shooter",
+    "item" : "clutter",
+    "location" : "on_roof",
+    "symbol" : "t",
+    "broken_symbol" : "#",
+    "color" : "purple",
+    "broken_color" : "purple",
+    "difficulty" : 1,
+    "durability" : 200,
+    "range" : 8,
+    "damage_modifier" : 10,
+    "breaks_into" : [{
+        "item" : "slime_scrap",
+        "count" : [3, 8]
+      }
+    ],
+    "damage_reduction" : {
+      "physical" : 5
+    },
+    "flags" : ["TURRET", "TOOL_NONE"],
+    "requirements" : {
+      "repair" : {
+        "skills" : [["mechanics", 1]],
+        "time" : 10000,
+        "using" : "blazemod_blobfix"
+      }
+    }
+  }, {
+    "id" : "sharp",
+    "type" : "vehicle_part",
+    "name" : "gel lancer",
+    "item" : "sharp",
+    "location" : "on_roof",
+    "symbol" : "t",
+    "broken_symbol" : "#",
+    "color" : "light_blue",
+    "broken_color" : "light_blue",
+    "difficulty" : 1,
+    "durability" : 400,
+    "range" : 12,
+    "damage_modifier" : 10,
+    "breaks_into" : [{
+        "item" : "slime_scrap",
+        "count" : [5, 10]
+      }
+    ],
+    "damage_reduction" : {
+      "physical" : 10
+    },
+    "flags" : ["TURRET", "TOOL_NONE"],
+    "requirements" : {
+      "repair" : {
+        "skills" : [["mechanics", 1]],
+        "time" : 10000,
+        "using" : "blazemod_blobfix"
+      }
+    }
+  }, {
+    "id" : "stickie",
+    "type" : "vehicle_part",
+    "name" : "gel puffer",
+    "item" : "stickie",
+    "location" : "on_roof",
+    "symbol" : "t",
+    "broken_symbol" : "#",
+    "color" : "yellow",
+    "broken_color" : "yellow",
+    "difficulty" : 1,
+    "durability" : 200,
+    "range" : 8,
+    "damage_modifier" : 10,
+    "folded_volume" : 1,
+    "breaks_into" : [{
+        "item" : "slime_scrap",
+        "count" : [3, 8]
+      }
+    ],
+    "damage_reduction" : {
+      "physical" : 5
+    },
+    "flags" : ["TURRET", "TOOL_NONE", "USE_TANKS"],
+    "requirements" : {
+      "repair" : {
+        "skills" : [["mechanics", 1]],
+        "time" : 10000,
+        "using" : "blazemod_blobfix"
+      }
+    }
+  }, {
+    "id" : "inkie",
+    "type" : "vehicle_part",
+    "name" : "fuel puffer",
+    "item" : "inkie",
+    "location" : "on_roof",
+    "symbol" : "t",
+    "broken_symbol" : "#",
+    "color" : "brown",
+    "broken_color" : "brown",
+    "difficulty" : 1,
+    "durability" : 200,
+    "range" : 8,
+    "damage_modifier" : 10,
+    "breaks_into" : [{
+        "item" : "slime_scrap",
+        "count" : [3, 8]
+      }
+    ],
+    "damage_reduction" : {
+      "physical" : 5
+    },
+    "flags" : ["TURRET", "TOOL_NONE", "USE_TANKS"],
+    "requirements" : {
+      "repair" : {
+        "skills" : [["mechanics", 1]],
+        "time" : 10000,
+        "using" : "blazemod_blobfix"
+      }
+    }
+  }, {
+    "id" : "meltie",
+    "type" : "vehicle_part",
+    "name" : "acid puffer",
+    "item" : "meltie",
+    "location" : "on_roof",
+    "symbol" : "t",
+    "broken_symbol" : "#",
+    "color" : "light_red",
+    "broken_color" : "light_red",
+    "difficulty" : 1,
+    "durability" : 200,
+    "range" : 8,
+    "damage_modifier" : 10,
+    "folded_volume" : 1,
+    "breaks_into" : [{
+        "item" : "slime_scrap",
+        "count" : [3, 8]
+      }
+    ],
+    "damage_reduction" : {
+      "physical" : 5
+    },
+    "flags" : ["TURRET", "TOOL_NONE", "USE_TANKS"],
+    "requirements" : {
+      "repair" : {
+        "skills" : [["mechanics", 1]],
+        "time" : 10000,
+        "using" : "blazemod_blobfix"
+      }
+    }
+  }
+]

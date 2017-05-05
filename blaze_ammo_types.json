@@ -1,0 +1,14 @@
+[
+  {
+    "id": "bfeed",
+    "name": "meat",
+    "default": "meat",
+    "type": "ammunition_type"
+  },
+  {
+    "id": "slime_scrap",
+    "name": "blob globs",
+    "default": "slime_scrap",
+    "type": "ammunition_type"
+  }
+]
