@@ -1,0 +1,22 @@
+[
+  {
+    "id": "edible_flesh",
+    "type": "requirement",
+    "components": [ [ [ "fish", 1 ], [ "fish_cooked", 1 ], [ "hstomach", 1 ], [ "stomach", 1 ], [ "human_flesh", 1 ], [ "meat", 1 ], [ "human_cooked", 1 ], [ "meat_cooked", 1 ], [ "offal", 1 ], [ "offal_cooked", 1 ], [ "dry_fish", 1 ], [ "dry_hflesh", 1 ], [ "dry_meat", 1 ] ] ]
+  },
+  {
+    "id": "usable_blob_flesh",
+    "type": "requirement",
+    "components": [ [ [ "edible_flesh", 1, "LIST" ], [ "meat_tainted", 1 ], [ "fat_tainted", 1 ], [ "dry_meat_tainted", 1 ] ] ]
+  },
+  {
+    "id": "usable_blob_bone",
+    "type": "requirement",
+    "components": [ [ [ "bone", 1 ], [ "bone_human", 1 ], [ "bone_tainted", 1 ] ] ]
+  },
+  {
+    "id": "blob_biomass_repair",
+    "type": "requirement",
+    "components": [ [ [ "usable_blob_flesh", 1, "LIST" ], [ "usable_blob_bone", 1, "LIST" ], [ "slime_scrap", 1 ] ] ]
+  }
+]
